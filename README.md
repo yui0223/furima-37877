@@ -2,16 +2,16 @@
 
 ## usersテーブル
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false |
-| encrypted_password | string | null: false |
-| last_name          | string | null: false |
-| first_name         | string | null: false |
-| last_name_kana     | string | null: false |
-| first_name_kana    | string | null: false |
-| birthday           | date   | null: false |
+| Column             | Type   | Options                            |
+| ------------------ | ------ | ---------------------------------- |
+| nickname           | string | null: false                        |
+| email              | string | null: false, unique: true          |
+| encrypted_password | string | null: false                        |
+| last_name          | string | null: false                        |
+| first_name         | string | null: false                        |
+| last_name_kana     | string | null: false                        |
+| first_name_kana    | string | null: false                        |
+| birthday           | date   | null: false                        |
 
 - has_many :items
 - has_many :orders
@@ -30,8 +30,8 @@
 | shipping_date_id   | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
-- belongs_to :users
-- belongs_to :orders
+- belongs_to :user
+- belongs_to :order
 
 
 
@@ -42,9 +42,10 @@
 | user               | references | null: false,foreign_key: true  |
 | item               | references | null: false,foreign_key: true  |
 
-- belongs_to :users
-- belongs_to :items
-- belongs_to :addresses
+- belongs_to :user
+- belongs_to :item
+
+- has_many :addresses
 
 ## addressesテーブル
 
@@ -53,8 +54,8 @@
 | postcode           | string     | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
-| address            | string     | null: false                    |
-| building           | string     |                                |
-| phone_number       | string     | null: false                    |
+| address            | string     | null: false, foreign_key: true |
+| building           | string     | foreign_key: true              |
+| phone_number       | string     | null: false, foreign_key: true |
 
-- belongs_to :orders
+- belongs_to :order
