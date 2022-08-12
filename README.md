@@ -15,6 +15,7 @@
 
 - has_many :items
 - has_many :orders
+- has_many :addresses
 
 ## itemsテーブル
 
@@ -32,7 +33,7 @@
 
 - belongs_to :user
 - belongs_to :order
-
+- has_one :address
 
 
 ## ordersテーブル
@@ -44,8 +45,7 @@
 
 - belongs_to :user
 - belongs_to :item
-
-- has_many :addresses
+- has_one :address
 
 ## addressesテーブル
 
@@ -54,8 +54,13 @@
 | postcode           | string     | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
-| address            | string     | null: false, foreign_key: true |
-| building           | string     | foreign_key: true              |
-| phone_number       | string     | null: false, foreign_key: true |
+| address            | string     | null: false                    |
+| building           | string     |                                |
+| phone_number       | string     | null: false                    |
+| user               | references | null: false,foreign_key: true  |
+| item               | references | null: false,foreign_key: true  |
+| order              | references | null: false,foreign_key: true  |
 
+- belong_to :user
+- belong_to :item
 - belongs_to :order
