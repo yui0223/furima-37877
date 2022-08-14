@@ -15,7 +15,6 @@
 
 - has_many :items
 - has_many :orders
-- has_many :addresses
 
 ## itemsテーブル
 
@@ -32,8 +31,7 @@
 | user               | references | null: false, foreign_key: true |
 
 - belongs_to :user
-- belongs_to :order
-- has_one :address
+- has_one :order
 
 
 ## ordersテーブル
@@ -57,10 +55,8 @@
 | address            | string     | null: false                    |
 | building           | string     |                                |
 | phone_number       | string     | null: false                    |
-| user               | references | null: false,foreign_key: true  |
-| item               | references | null: false,foreign_key: true  |
+| user               | references | null: false                    |
+| item               | references | null: false                    |
 | order              | references | null: false,foreign_key: true  |
 
-- belong_to :user
-- belong_to :item
 - belongs_to :order
