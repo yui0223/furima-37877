@@ -55,8 +55,8 @@
 | address            | string     | null: false                    |
 | building           | string     |                                |
 | phone_number       | string     | null: false                    |
-| user               | references | null: false                    |
-| item               | references | null: false                    |
+| user               |            | null: false                    |
+| item               |            | null: false                    |
 | order              | references | null: false,foreign_key: true  |
 
 - belongs_to :order
