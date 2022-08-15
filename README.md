@@ -38,8 +38,8 @@
 
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| user               | references | null: false                    |
-| item               | references | null: false                    |
+| user               |            | null: false                    |
+| item               |            | null: false                    |
 
 - belongs_to :user
 - belongs_to :item
