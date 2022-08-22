@@ -8,7 +8,6 @@ RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
     context '新規登録できる場合' do
       it '全ての項目の入力が存在すれば登録できる' do
-        # binding.pry
         expect(@user).to be_valid
       end
     end
@@ -30,7 +29,6 @@ RSpec.describe User, type: :model do
         @user.save
         another_user = FactoryBot.build(:user, email: @user.email)
         another_user.valid?
-        # binding.pry
         expect(another_user.errors.full_messages).to include('Email has already been taken')
       end
 
